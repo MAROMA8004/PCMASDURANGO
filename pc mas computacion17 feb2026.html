@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC MAS COMPUTACION - Servicios y Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e2a3a, #0f1a24);
+            color: white;
+            padding: 20px 0;
+            border-bottom: 4px solid #ff6600;
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header h1 span {
+            color: #ff6600;
+        }
+
+        .info-contacto {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .info-contacto div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-contacto i {
+            color: #ff6600;
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+            border: 2px solid white;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            background-color: #20b859;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-solicitar {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-solicitar:hover {
+            background-color: #e65c00;
+            transform: scale(1.05);
+        }
+
+        .servicios {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .servicios h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1e2a3a;
+            position: relative;
+        }
+
+        .servicios h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #ff6600;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .servicio-item {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #ff6600;
+        }
+
+        .servicio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .servicio-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .servicio-item h3 {
+            font-size: 1.3rem;
+            margin: 15px 0 10px;
+            color: #1e2a3a;
+            padding: 0 10px;
+        }
+
+        .servicio-item p {
+            padding: 0 15px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .solicitar {
+            background: linear-gradient(135deg, #1e2a3a, #0f1a24);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .solicitar .container {
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .solicitar h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .solicitar p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ff6600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-enviar {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .btn-enviar:hover {
+            background-color: #e65c00;
+        }
+
+        #form-mensaje {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        footer .info-contacto {
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .info-contacto {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>PC <span>MAS</span> COMPUTACION</h1>
+            <div class="info-contacto">
+                <div><i class="fas fa-map-marker-alt"></i> RIEL 409 COL. BENJAMIN MENDEZ DURANGO, DGO.</div>
+                <div><i class="fas fa-envelope"></i> iscmartin2@gmail.com</div>
+                <div><i class="fas fa-phone-alt"></i> 6182133448</div>
+            </div>
+            <a href="https://wa.me/526182133448?text=Hola!%20Necesito%20informes%20sobre%20sus%20servicios" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> ACCESO DIRECTO A WHATSAPP
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Soluciones tecnológicas a tu medida</h2>
+            <p>Expertos en reparación, venta y soporte técnico</p>
+            <a href="#solicitar" class="btn-solicitar">Solicitar Servicio</a>
+        </div>
+    </section>
+
+    <section class="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="grid-servicios">
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Técnico reparando computadora">
+                    <h3>REPARACIÓN DE COMPUTADORAS DE ESCRITORIO Y LAPTOP</h3>
+                    <p>Diagnóstico y reparación profesional de equipos de todas las marcas.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Reparación de impresora">
+                    <h3>REPARACIÓN DE IMPRESORAS</h3>
+                    <p>Mantenimiento y reparación de impresoras láser, tinta y multifuncionales.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Técnico reparando celular">
+                    <h3>REPARACIÓN DE CELULARES</h3>
+                    <p>Cambio de pantallas, baterías, software y más.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cámara de seguridad">
+                    <h3>INSTALACIÓN DE CÁMARAS DE VIDEOVIGILANCIA</h3>
+                    <p>Sistemas de seguridad analógicos y IP para tu hogar o negocio.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Persona usando tablet">
+                    <h3>REPARACIÓN DE TABLET</h3>
+                    <p>Reparación de pantallas, puertos de carga y fallas electrónicas.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Accesorios de computadora">
+                    <h3>VENTA DE ACCESORIOS</h3>
+                    <p>Teclados, mouse, fundas, cables y todo tipo de accesorios.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1574285013029-29296a71930e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cartuchos de tóner">
+                    <h3>VENTA DE TONERS</h3>
+                    <p>Toners y cartuchos originales y compatibles para todas las marcas.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Servidores y redes">
+                    <h3>INSTALACIÓN DE REDES INFORMÁTICAS</h3>
+                    <p>Diseño e instalación de redes cableadas e inalámbricas.</p>
+                </div>
+                <div class="servicio-item">
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pantalla LED">
+                    <h3>REPARACIÓN DE PANTALLAS LED</h3>
+                    <p>Reparación de pantallas de TV, monitores y laptops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solicitar" class="solicitar">
+        <div class="container">
+            <h2>Solicita tu servicio</h2>
+            <p>Déjanos tus datos y nos pondremos en contacto contigo a la brevedad.</p>
+            
+            <!-- FORMULARIO CON EMAILJS - TOTALMENTE CONFIGURADO -->
+            <form id="form-servicio">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="6182133448" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servicio">Servicio de interés *</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="">-- Selecciona un servicio --</option>
+                        <option value="Reparación de computadoras">💻 Reparación de computadoras</option>
+                        <option value="Reparación de impresoras">🖨️ Reparación de impresoras</option>
+                        <option value="Reparación de celulares">📱 Reparación de celulares</option>
+                        <option value="Instalación de cámaras">📹 Instalación de cámaras</option>
+                        <option value="Reparación de tablet">📟 Reparación de tablet</option>
+                        <option value="Venta de accesorios">🎧 Venta de accesorios</option>
+                        <option value="Venta de toners">🖨️ Venta de toners</option>
+                        <option value="Instalación de redes">🌐 Instalación de redes</option>
+                        <option value="Reparación de pantallas">📺 Reparación de pantallas LED</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Mensaje o detalles</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Describe tu problema o requerimiento..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-enviar">
+                    <i class="fas fa-paper-plane"></i> Enviar solicitud
+                </button>
+                
+                <div id="form-mensaje"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="info-contacto">
+                <div><i class="fas fa-map-marker-alt"></i> RIEL 409 COL. BENJAMIN MENDEZ DURANGO, DGO.</div>
+                <div><i class="fas fa-envelope"></i> iscmartin2@gmail.com</div>
+                <div><i class="fas fa-phone-alt"></i> 6182133448</div>
+            </div>
+            <p>&copy; 2024 PC MAS COMPUTACION - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        // ✅ TUS DATOS DE EMAILJS - YA CONFIGURADOS
+        const PUBLIC_KEY = 'AjTQpTKGAn5YZ7WLh';     // De API Keys
+        const SERVICE_ID = 'service_rgxhq6d';        // De Email Services
+        const TEMPLATE_ID = 'template_7ieqgg6';       // De Email Templates
+        
+        // Inicializar EmailJS
+        emailjs.init(PUBLIC_KEY);
+        
+        const form = document.getElementById('form-servicio');
+        const mensajeDiv = document.getElementById('form-mensaje');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            mensajeDiv.style.display = 'block';
+            mensajeDiv.textContent = '⏳ Enviando solicitud...';
+            mensajeDiv.style.backgroundColor = '#ffc107';
+            mensajeDiv.style.color = '#000';
+
+            // Preparar los datos para enviar
+            const templateParams = {
+                to_email: 'iscmartin2@gmail.com',
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                servicio: document.getElementById('servicio').value,
+                mensaje: document.getElementById('mensaje').value || 'Sin mensaje',
+                fecha: new Date().toLocaleString('es-MX')
+            };
+
+            try {
+                // Enviar el correo usando EmailJS
+                const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+                
+                console.log('✅ Correo enviado:', response);
+                
+                mensajeDiv.textContent = '✓ ¡Solicitud enviada con éxito! Pronto nos comunicaremos contigo.';
+                mensajeDiv.style.backgroundColor = '#4CAF50';
+                mensajeDiv.style.color = 'white';
+                
+                // Guardar copia local de respaldo
+                let solicitudes = JSON.parse(localStorage.getItem('solicitudes') || '[]');
+                solicitudes.push(templateParams);
+                localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
+                
+                // Limpiar formulario
+                form.reset();
+                
+            } catch (error) {
+                console.error('❌ Error al enviar:', error);
+                
+                mensajeDiv.textContent = '✗ Error al enviar. Por favor intenta de nuevo o llama al 6182133448.';
+                mensajeDiv.style.backgroundColor = '#dc3545';
+                mensajeDiv.style.color = 'white';
+            }
+
+            setTimeout(() => {
+                mensajeDiv.style.display = 'none';
+            }, 5000);
+        });
+
+        // Validación en tiempo real para teléfono (solo números)
+        document.getElementById('telefono').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body>
+</html>
